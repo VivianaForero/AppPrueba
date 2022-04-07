@@ -1,0 +1,29 @@
+{
+  "name": "prueba-tecnica",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivianaForero/AppPrueba.git"
+  },
+  "author": "Viviana Forero Betancourt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VivianaForero/AppPrueba/issues"
+  },
+  "homepage": "https://github.com/VivianaForero/AppPrueba#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0",
+    "underscore": "^1.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
