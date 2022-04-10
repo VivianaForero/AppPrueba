@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
 
 class Server {
     constructor(){
@@ -7,6 +8,9 @@ class Server {
         this.port=process.env.PORT;
         this.usersPath = '/api/users';
         
+        //database conection
+     //   this.conectarDB();
+
         //Middlewares
         this.middlewares();
 
@@ -22,6 +26,8 @@ class Server {
 
         //Directorio público
         this.app.use(express.static('public'));
+
+        this.app.use(morgan('dev'));
     }
 
     routes() {
