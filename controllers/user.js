@@ -9,53 +9,32 @@ let respuesta = [];
 
 const personGet = (req=request,res=response) => {
    
+    const sql = 'SELECT * from person'
     const {name,birth} = req.query;
-    const resultado = connectionBd.consultarPerdsonas();
+    const personas = connectionBd.consultarPerdsonas(sql);
     
     res.json({        
-        resultado
+        personas
     }) ;
 };
 
 const personPost = (req,res=response) => {
 
-    console.log('hola mundo', req.body)
+
     
     const person = {
         name: req.body.name,
         birth: req.body.birth
     }
     
-
-    
-    var conection = mysql.createConnection({
-        host: 'localhost',
-        database: 'pruebaTecnica',
-        user: 'usuario',
-        password: 'Contrasea_7'
-    });
-
-     conection.connect(function (error) {
-        if (error) {
-         throw error;
-        }
-        console.log('Successful conection');
-        
-     })
-
     const sql = 'INSERT into person (name,birth) values ("'+person.name+'","'+person.birth+'")'
-    console.log(sql);
-    conection.query(sql,(err,result)=>{
-        if (err) 
-            throw err
-        
-        console.log('1 record inserted');
-        res.json({
-            msg: 'Registro almacenado con èxito'
-        })
-    }); 
     
-    conection.end();
+    const resultado = connectionBd.registrarPersona(sql);
+    
+    res.json({        
+        resultado
+    }) ;
+    
 
 };
     module.exports = {

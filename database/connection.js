@@ -5,7 +5,7 @@ let respuesta;
 const  connectionBd = {
 
 
-    consultarPerdsonas(){
+    consultarPerdsonas(query){
         
         const conection = mysql.createConnection({
             host: 'localhost',
@@ -22,21 +22,53 @@ const  connectionBd = {
             
          });
 
+        conection.query(query,(err,result)=>{
+            if (err) {
+                throw err}
+                
+                respuesta = result;
+                console.log(result)
+            
+                
+            }); 
+    
+        conection.end();
 
-        const sql = 'SELECT * from person'
-        console.log(sql);
-        conection.query(sql,(err,result)=>{
-            if (err) 
+        return respuesta;
+    },
+
+    registrarPersona(query){
+
+        const conection = mysql.createConnection({
+            host: 'localhost',
+            database: 'pruebaTecnica',
+            user: 'usuario',
+            password: 'Contrasea_7'
+        });
+
+        conection.connect(function (error) {
+            if (error) {
+             throw error;
+            }
+            console.log('Successful conection');
+            
+         });
+
+
+        console.log(query);
+        conection.query(query,(err,result)=>{
+            if (err) {
                 throw err
-                respuesta = result
-                
-                
+            }
+                console.log('1 record inserted');              
             }); 
     
     conection.end();
 
     return respuesta;
+
     }
+
 }
 
 module.exports = connectionBd;
