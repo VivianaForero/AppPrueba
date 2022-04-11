@@ -22,6 +22,8 @@ const  connectionBd = {
             
          });
 
+         
+
         conection.query(query,(err,result)=>{
             if (err) {
                 throw err}
