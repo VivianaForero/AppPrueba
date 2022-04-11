@@ -1,60 +1,28 @@
-<<<<<<< Updated upstream
-INSTRUCCIONES:
-
-1. 
-=======
 # PRUEBA FULL STACK BANK
 
 ## USO DE LA API REST 
-Existen dos servicios que permiten obtener el mensaje de la nave y su ubicación.
+Descargar y descomprimir el servicio, ejecutar el comando 'npm i' para realizar la instalación de los módulos,luego, ejecutar app.js, que va a correr el servicio de forma local en el puerto 8080.
 
 ## PRIMER SERVICIO 
-Cuando los tres satélites envían información al mismo tiempo para determinar el mensaje y la posición de la nave:
+Para consumir el servicio se puede usar el aplicativo Postman. Para realizar un nuevo registro:
 
-Se puede usar el aplicativo Postman para el consumo del servicio:
-
-- Abre una nueva ventana en postman
+- Abre una nueva ventana en Postman
 - Selecciona POST
-- ingresa la siguiente url: http://fuego-de-quasar-andrex2040.herokuapp.com/api/meli/ubications/topsecret
+- ingresa la siguiente url: http://localhost:8080/api/users
 - Selecciona la opcion Body
 - Selecciona la opcion raw y JSON
 - Ingresa el Json con la informacion en la siguiente estructura
 
 ```json
-{ 
-    "satellites": [ 
+{  
         { 
-            "name": "kenobi", 
-            "distance": 100.0, 
-            "message": ["este", "", "", "mensaje", ""] 
-        }, 
-        { 
-            "name": "skywalker", 
-            "distance": 115.5, 
-            "message": ["", "es", "", "", "secreto"] 
-        }, 
-        { 
-            "name": "sato", 
-            "distance": 142.7, 
-            "message": ["este", "", "un", "", ""] 
+            "name": "Santiago", 
+            "birth": "1980/07/23" 
         }
-    ]
 }
 ```
 - Da click en el botón Send
-- Visualiza la respuesta del servicio en la estructura como la siguiente:
-
-```json
-{
-    "position": {
-        "x": -487.28591250000005,
-        "y": 1557.0142250000004
-    },
-    "message": "este es un mensaje secreto"
-}
-```
-![image](https://user-images.githubusercontent.com/3359026/149630225-0074c288-ceff-466e-88b0-51dcdb87ceb5.png)
-
+- Visualiza la respuesta con la misma estructura enviada, confirmando que la información proporcionada se almacenó con éxito.
 
 
 ## SEGUNDO SERVICIO 
