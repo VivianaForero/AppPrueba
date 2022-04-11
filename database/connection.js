@@ -62,7 +62,8 @@ const  connectionBd = {
             if (err) {
                 throw err
             }
-                console.log('1 record inserted');              
+                console.log('1 record inserted');
+
             }); 
     
     conection.end();
